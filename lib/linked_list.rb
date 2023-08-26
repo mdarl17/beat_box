@@ -100,19 +100,3 @@ class LinkedList
     penult_node
   end
 end
-
-list = LinkedList.new
-list.append('woo')
-list.append('shi')
-list.append('shu')
-list.append('deep')
-list.append('bloop')
-list.append('beep')
-list.append('bop')
-p list.to_string
-p "popped: " + list.pop
-p list.to_string
-p list.includes?('beep')
-p "popped: " + list.pop
-p list.to_string
-p list.includes?('beep')
