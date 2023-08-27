@@ -85,23 +85,23 @@ class LinkedList
   end
 end
 
-list = LinkedList.new
-list.append('la')
-list.append('dee')
-list.append('da')
-list.append('doh')
-list.append('we')
-list.append('likes')
-list.append('to')
-list.append('party')
-p list.count
-p list.traverse_list(3).data
-list.insert(3,'ho')
-p list.count
-list.insert(6,'hum')
-p list.count
-p list.to_string
-p list.pop.data
-p list.count
-p list.to_string
-p list.find(0,8)
+# list = LinkedList.new
+# list.append('la')
+# list.append('dee')
+# list.append('da')
+# list.append('doh')
+# list.append('we')
+# list.append('likes')
+# list.append('to')
+# list.append('party')
+# p list.count
+# p list.get_node(3).data
+# list.insert(3,'ho')
+# p list.count
+# list.insert(6,'hum')
+# p list.count
+# p list.to_string
+# p list.pop.data
+# p list.count
+# p list.to_string
+# p list.find(0,8)
