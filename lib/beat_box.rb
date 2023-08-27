@@ -8,7 +8,7 @@ class BeatBox
 
   def initialize(data=nil)
     @all = ['tee','dee','deep','bop','boop','la','na']
-    @list = init_list(data)
+    @list = LinkedList.new(data)
   end
   
   def init_list(data)
