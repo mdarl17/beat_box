@@ -50,8 +50,8 @@ class LinkedList
   end
 
   def to_string(node=@head)
-    return node.data if !node.next_node
-    "#{node.data} #{to_string(node.next_node)}"
+    return nil if !node
+    "#{node.data} #{to_string(node.next_node)}".strip
   end
 
   def find(idx,len)
