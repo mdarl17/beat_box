@@ -3,8 +3,9 @@ require 'dead_end'
 
 class LinkedList
   attr_reader :head
-  def initialize
+  def initialize(data=nil)
     @head = nil
+    @data = data
   end
   def get_node(pos)
     node = @head
