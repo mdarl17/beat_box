@@ -10,16 +10,6 @@ class BeatBox
     @all = ['tee','dee','deep','bop','boop','la','na']
     @list = LinkedList.new(data)
   end
-  
-  def init_list(data)
-    if data && self.list
-      self.list.append(data)
-    elsif data && !self.list
-      @list = LinkedList.new.append(data)
-    else
-      @list = LinkedList.new
-    end
-  end
 
   def get_valid_beats(data)
     data_arr = data.split(" ")
@@ -40,7 +30,7 @@ class BeatBox
   def append(data)
     valid_arr = get_valid_beats(data)
     if valid_arr.length > 0
-      valid_arr.split(" ").each{ |beat|
+      valid_arr.each{ |beat|
         @list.append(beat)
         add_to_all(beat)
       }
@@ -67,7 +57,7 @@ class BeatBox
   end
 
   def add_to_all(data)
-    @all << data if @all.include?(data)
+    @all << data if !@all.include?(data)
   end
 end
 
