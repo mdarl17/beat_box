@@ -15,7 +15,7 @@ class LinkedList
   end
   def append(data)
     if !@head
-      @head = Node.new(data)ch
+      @head = Node.new(data)
     else
       get_node(count-1).next_node = Node.new(data)
     end
