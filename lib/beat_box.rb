@@ -82,7 +82,7 @@ p bb.list.to_string
 p bb.all
 bb.play
 bb.rate = 100
-bb.voice = 'Samantha'
+bb.voice = 'Bruce'
 bb.play
 bb.reset_rate
 bb.play
