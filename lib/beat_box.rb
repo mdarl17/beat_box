@@ -19,7 +19,7 @@ class BeatBox
     valid_beats = []
     if data_arr.length > 0
       valid_beats = data_arr.select{ |beat|
-        @all.include?(beat) || beat.length <= 5
+        @all.include?(beat) || beat.length <= 6
       }
     end
     valid_beats.each{ |beat|
@@ -72,25 +72,30 @@ class BeatBox
   end
 end
 
-bb = BeatBox.new("deep")
-bb.append('Mississippi')
-p bb.list
-p bb.all
-p bb.list.to_string
-bb.prepend("womp dowop dooop Mississippi")
-p bb.list.to_string
-p bb.all
-bb.play
-bb.rate = 100
-bb.voice = 'Bruce'
-bb.play
+bb = BeatBox.new
+# bb.append('Mmmbop ba duba dop
+# Ba du bop ba duba dop
+# Ba du bop ba duba dop
+# Ba du oh yeah
+# Mmmbop ba duba dop
+# Ba du bop ba du dop
+# Ba du bop ba du dop
+# Ba du yeah')
+# p bb.list
+# p bb.all
+# p bb.list.to_string
+# p bb.all
+bb.rate = 200
+bb.voice = 'Moira'
+# bb.play
 bb.reset_rate
-bb.play
 bb.reset_voice
-bb.play
 p bb.count
+puts bb.list.to_string
+
 
 # bb.prepend('tee tee tee deep')
-# bb.append('deep doo ditt woo hoo shu')
+bb.append('deep doo ditt woo hoo shu')
+puts bb.list.to_string
 # binding.pry
 
