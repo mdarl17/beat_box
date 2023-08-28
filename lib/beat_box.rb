@@ -73,29 +73,29 @@ class BeatBox
 end
 
 bb = BeatBox.new
-# bb.append('Mmmbop ba duba dop
-# Ba du bop ba duba dop
-# Ba du bop ba duba dop
-# Ba du oh yeah
-# Mmmbop ba duba dop
-# Ba du bop ba du dop
-# Ba du bop ba du dop
-# Ba du yeah')
+bb.append('Mmmbop ba duba dop
+Ba du bop ba duba dop
+Ba du bop ba duba dop
+Ba du oh yeah
+Mmmbop ba duba dop
+Ba du bop ba du dop
+Ba du bop ba du dop
+Ba du yeah')
 # p bb.list
 # p bb.all
-# p bb.list.to_string
+p bb.list.to_string
 # p bb.all
-bb.rate = 200
-bb.voice = 'Moira'
+# bb.rate = 200
+# bb.voice = 'Moira'
 # bb.play
-bb.reset_rate
-bb.reset_voice
+# bb.reset_rate
+# bb.reset_voice
 p bb.count
-puts bb.list.to_string
+# puts bb.list.to_string
 
 
 # bb.prepend('tee tee tee deep')
-bb.append('deep doo ditt woo hoo shu')
-puts bb.list.to_string
-# binding.pry
+# bb.append('deep doo ditt woo hoo shu')
+# puts bb.list.to_string
+binding.pry
 
