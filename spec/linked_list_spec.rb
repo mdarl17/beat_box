@@ -6,9 +6,10 @@ describe LinkedList do
     expect(list).to be_a LinkedList
   end
 
-  it 'when first created does not have a `head`' do
-    list = LinkedList.new
-    expect(list.head).to eq(nil)
+  it 'might be instantiated with a `head` node' do
+    list = LinkedList.new('bop')
+    expect(list.head).to be_a Node
+    expect(list.head.data).to eq('bop')
   end
 
   it 'can add a `head` with #append(data)' do

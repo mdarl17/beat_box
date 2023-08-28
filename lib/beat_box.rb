@@ -97,5 +97,6 @@ puts bb.list.to_string
 # bb.prepend('tee tee tee deep')
 bb.append('deep doo ditt woo hoo shu')
 puts bb.list.to_string
+puts bb.count
 # binding.pry
 
