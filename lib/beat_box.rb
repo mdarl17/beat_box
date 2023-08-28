@@ -14,6 +14,10 @@ class BeatBox
     @voice = 'Boing'
   end
 
+  def init_list(data)
+    new_list = LinkedList.new.append
+  end
+
   def get_valid_beats(data)
     data_arr = data.split(" ")
     valid_beats = []
@@ -51,7 +55,7 @@ class BeatBox
   end
 
   def count
-    @list.count
+    @list.count - 1
   end
   
   def play
@@ -73,14 +77,15 @@ class BeatBox
 end
 
 bb = BeatBox.new
-bb.append('Mmmbop ba duba dop
-Ba du bop ba duba dop
-Ba du bop ba duba dop
-Ba du oh yeah
-Mmmbop ba duba dop
-Ba du bop ba du dop
-Ba du bop ba du dop
-Ba du yeah')
+bb.append('titty titty boom bop')
+# bb.append('Mmmbop ba duba dop 
+# Ba du bop ba duba dop 
+# Ba du bop ba duba dop 
+# Ba du oh yeah 
+# Mmmbop ba duba dop 
+# Ba du bop ba du dop 
+# Ba du bop ba du dop 
+# Ba du yeah')
 # p bb.list
 # p bb.all
 p bb.list.to_string
@@ -97,5 +102,5 @@ p bb.count
 # bb.prepend('tee tee tee deep')
 # bb.append('deep doo ditt woo hoo shu')
 # puts bb.list.to_string
-binding.pry
+# binding.pry
 

@@ -2,10 +2,13 @@ require './lib/node'
 require 'dead_end'
 
 class LinkedList
+
   attr_reader :head
-  def initialize(head=nil)
-    @head = head
+
+  def initialize(data=nil)
+    @head = Node.new(data)
   end
+
   def get_node(pos)
     node = @head
     pos.times{
@@ -15,7 +18,8 @@ class LinkedList
   end
   def append(data)
     if !@head
-      @head = Node.new(data)
+      @head = Node.new
+      @head.data = data
     else
       get_node(count-1).next_node = Node.new(data)
     end

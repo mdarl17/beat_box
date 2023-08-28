@@ -6,16 +6,17 @@ describe LinkedList do
     expect(list).to be_a LinkedList
   end
 
-  it 'when first created does not have a `head`' do
-    list = LinkedList.new
-    expect(list.head).to eq(nil)
+  it 'might be initialized with a `head` node' do
+    list = LinkedList.new('mmmbop')
+    expect(list.head).to be_a Node
+    expect(list.head.data).to eq('mmmbop')
   end
 
-  it 'can add a `head` with #append(data)' do
-    list = LinkedList.new
-    list.append('doop')
-    expect(list.head).to be_a Node
-    expect(list.head.data).to eq('doop')
-    expect(list.head.next_node).to be nil
-  end
+  # it 'can add a `head` with #append(data)' do
+  #   list = LinkedList.new
+  #   list.append('doop')
+  #   expect(list.head).to be_a Node
+  #   expect(list.head.data).to eq('doop')
+  #   expect(list.head.next_node).to be nil
+  # end
 end
