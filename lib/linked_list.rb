@@ -31,7 +31,7 @@ class LinkedList
     if idx == 0
       new_node = Node.new(data)
       new_node.next_node = @head
-      self.head = new_node
+      @head = new_node
     else
       get_node(idx-1).next_node = Node.new(data)
     end

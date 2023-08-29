@@ -74,5 +74,6 @@ bb.voice = 'Cellos'
 bb.play
 # bb_2.play
 p bb.list.to_string
+p "bb.all => #{bb.all}"
 # p bb_2.all
 
