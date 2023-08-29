@@ -57,7 +57,7 @@ class BeatBox
   end
 
   def count
-    @list.count
+    @list.count - 1
   end
   
   def play
@@ -74,6 +74,7 @@ class BeatBox
 end
 
 bb = BeatBox.new
+
 # bb_2 = BeatBox.new('mmm bop')
 bb.append('womp')
 bb.prepend('doo')
