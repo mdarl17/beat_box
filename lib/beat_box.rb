@@ -5,12 +5,22 @@ require 'pry'
 class BeatBox
 
   attr_reader :list
-  attr_accessor :rate, :voice, :all
+  attr_accessor :rate, :voice
 
   def initialize(data=nil)
-    @list = LinkedList.new.append(data)
+    @list = init_list(data)
     @rate = 500
     @voice = 'Boing'
+  end
+
+  def init_list(data)
+    if data
+      list = LinkedList.new
+      list.head = list.append(data)
+      return list
+    else
+      return LinkedList.new
+    end
   end
 
   def append(data)
@@ -51,7 +61,7 @@ class BeatBox
   end
   
   def play
-    puts `say -r #{@rate} -v #{@voice} '#{@list.to_string}'`
+    `say -r #{@rate} -v #{@voice} '#{@list.to_string}'`
   end
 
   def reset_rate
@@ -73,7 +83,7 @@ bb.rate = 100
 bb.voice = 'Cellos'
 bb.play
 # bb_2.play
-p bb.list.to_string
 p "bb.all => #{bb.all}"
 # p bb_2.all
+binding.pry
 
