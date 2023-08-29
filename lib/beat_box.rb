@@ -22,6 +22,15 @@ class BeatBox
       end
   end
 
+  def prepend(data)
+    valid_arr = get_valid_beats(data)
+    if valid_arr.length > 0
+      valid_arr.each{ |beat|
+        @list.prepend(beat)
+      }
+    end
+  end
+
   def get_valid_beats(data)
     valid_beats = ['tee','dee','deep','bop','boop','la','na']
     data_arr = data.split(" ")
@@ -35,16 +44,6 @@ class BeatBox
 
   def all
     @list.to_string
-  end
-
-  def prepend(data)
-    valid_arr = get_valid_beats(data)
-    if valid_arr.length > 0
-      valid_arr.each{ |beat|
-        @list.prepend(beat)
-        @all << beat
-      }
-    end
   end
 
   def count
@@ -65,14 +64,15 @@ class BeatBox
 end
 
 bb = BeatBox.new
-bb_2 = BeatBox.new('mmm bop')
+# bb_2 = BeatBox.new('mmm bop')
 bb.append('womp')
+bb.prepend('doo')
 # bb.append('ding dah oom oom ding oom oom oom ding dah oom oom ding dah oom oom ding dah oom oom Mississippi')
 # bb.voice = "Cellos"
 bb.rate = 100
 bb.voice = 'Cellos'
 bb.play
-bb_2.play
-p bb.all
-p bb_2.all
+# bb_2.play
+p bb.list.to_string
+# p bb_2.all
 

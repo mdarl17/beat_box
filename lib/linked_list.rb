@@ -6,7 +6,7 @@ class LinkedList
   def initialize
     @head = nil
   end
-
+  # Helper function to get a node's position on LinkedList
   def get_node(pos)
     node = @head
     pos.times{
@@ -16,36 +16,25 @@ class LinkedList
   end
   def append(data)
     return self if !data
-    if !@head
-      self.head = Node.new(data)
-      return self
-    else
-      new_node = get_node(count-1).next_node = Node.new(data)
-      self.new_node
-      return self
-    end
+    insert(count, data)
   end
 
   def prepend(data)
-    if @head
-      new_node = Node.new(data)
-      new_node.next_node = @head
-      @head = new_node
-    else
-      @head = Node.new(data)
-    end
+    insert(0, data)
   end
 
-  def insert(idx, data, node=@head)
+  def insert(idx, data)
     if idx > count || idx < 0
       puts "Sorry, #{idx} value not in range of #{count} nodes"
-      return
     end
-    new_node = Node.new(data)
-    node_before = get_node(idx-1)
-    node_behind = node_before.next_node
-    node_before.next_node = new_node
-    new_node.next_node = node_behind
+
+    if idx == 0
+      new_node = Node.new(data)
+      new_node.next_node = @head
+      self.head = new_node
+    else
+      get_node(idx-1).next_node = Node.new(data)
+    end
   end
 
   def count(node=@head, count=0)
@@ -90,7 +79,7 @@ class LinkedList
   end
 end
 
-# list = LinkedList.new
+list = LinkedList.new
 # list.append('la')
 # list.append('dee')
 # list.append('da')
@@ -103,7 +92,7 @@ end
 # p list.get_node(3).data
 # list.insert(3,'ho')
 # p list.count
-# list.insert(6,'hum')
+# list.insert(2,'hum')
 # p list.count
 # p list.to_string
 # p list.pop.data
