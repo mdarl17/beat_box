@@ -4,54 +4,56 @@ require 'pry'
 
 class BeatBox
 
-  attr_reader :list, :all
+  attr_reader :list
   attr_accessor :rate, :voice
 
   def initialize(data=nil)
-    @all = ['tee','dee','deep','bop','boop','la','na']
-    @list = LinkedList.new(data)
+    @list = init_list(data)
     @rate = 500
     @voice = 'Boing'
   end
 
   def init_list(data)
-    new_list = LinkedList.new.append
-  end
-
-  def get_valid_beats(data)
-    data_arr = data.split(" ")
-    valid_beats = []
-    if data_arr.length > 0
-      valid_beats = data_arr.select{ |beat|
-        @all.include?(beat) || beat.length <= 6
-      }
+    if data
+      list = LinkedList.new
+      list.head = list.append(data)
+      return list
+    else
+      return LinkedList.new
     end
-    valid_beats.each{ |beat|
-      if !@all.include?(beat)
-        @all << beat
-      end
-    }
-    valid_beats.length > 0 ? valid_beats : nil
   end
 
   def append(data)
     valid_arr = get_valid_beats(data)
-    if valid_arr
-      valid_arr.each{ |beat|
-        @list.append(beat)
-        add_to_all(beat)
-      }
-    end
+      if valid_arr.length > 0
+        valid_arr.each{ |beat|
+          @list.append(beat)
+        }
+      end
   end
 
   def prepend(data)
     valid_arr = get_valid_beats(data)
-    if valid_arr
+    if valid_arr.length > 0
       valid_arr.each{ |beat|
         @list.prepend(beat)
-        add_to_all(beat)
       }
     end
+  end
+
+  def get_valid_beats(data)
+    valid_beats = ['tee','dee','deep','bop','boop','la','na']
+    data_arr = data.split(" ")
+    if data_arr.length > 0
+      new_beats = data_arr.select{ |beat|
+        valid_beats.include?(beat) || beat.length <= 6
+      }
+      return new_beats
+    end
+  end
+
+  def all
+    @list.to_string
   end
 
   def count
@@ -59,12 +61,7 @@ class BeatBox
   end
   
   def play
-    # beats = @list.to_string
-    `say -r #{@rate} -v #{@voice} #{@list.to_string}`
-  end
-
-  def add_to_all(data)
-    @all << data if !@all.include?(data)
+    `say -r #{@rate} -v #{@voice} '#{@list.to_string}'`
   end
 
   def reset_rate
@@ -77,30 +74,17 @@ class BeatBox
 end
 
 bb = BeatBox.new
-bb.append('titty titty boom bop')
-# bb.append('Mmmbop ba duba dop 
-# Ba du bop ba duba dop 
-# Ba du bop ba duba dop 
-# Ba du oh yeah 
-# Mmmbop ba duba dop 
-# Ba du bop ba du dop 
-# Ba du bop ba du dop 
-# Ba du yeah')
-# p bb.list
-# p bb.all
-p bb.list.to_string
-# p bb.all
-# bb.rate = 200
-# bb.voice = 'Moira'
-# bb.play
-# bb.reset_rate
-# bb.reset_voice
-p bb.count
-# puts bb.list.to_string
 
-
-# bb.prepend('tee tee tee deep')
-# bb.append('deep doo ditt woo hoo shu')
-# puts bb.list.to_string
-# binding.pry
+# bb_2 = BeatBox.new('mmm bop')
+bb.append('womp')
+bb.prepend('doo')
+# bb.append('ding dah oom oom ding oom oom oom ding dah oom oom ding dah oom oom ding dah oom oom Mississippi')
+# bb.voice = "Cellos"
+bb.rate = 100
+bb.voice = 'Cellos'
+bb.play
+# bb_2.play
+p "bb.all => #{bb.all}"
+# p bb_2.all
+binding.pry
 

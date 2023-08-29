@@ -3,11 +3,11 @@ require 'dead_end'
 
 class LinkedList
 
-  attr_reader :head
-
-  def initialize(data=nil)
-    @head = Node.new(data)
+  attr_accessor :head
+  def initialize
+    @head = nil
   end
+  # Helper function to get a node's position on LinkedList
 
   def get_node(pos)
     node = @head
@@ -16,35 +16,28 @@ class LinkedList
     }
     node
   end
+  
   def append(data)
-    if !@head
-      @head = Node.new
-      @head.data = data
-    else
-      get_node(count-1).next_node = Node.new(data)
-    end
+    return self if !data
+    insert(count, data)
   end
 
   def prepend(data)
-    if @head
+    insert(0, data)
+  end
+
+  def insert(idx, data)
+    if idx > count || idx < 0
+      puts "Sorry, #{idx} value not in range of #{count} nodes"
+    end
+
+    if idx == 0
       new_node = Node.new(data)
       new_node.next_node = @head
       @head = new_node
     else
-      @head = Node.new(data)
+      get_node(idx-1).next_node = Node.new(data)
     end
-  end
-
-  def insert(idx, data, node=@head)
-    if idx > count || idx < 0
-      puts "Sorry, #{idx} value not in range of #{count} nodes"
-      return
-    end
-    new_node = Node.new(data)
-    node_before = get_node(idx-1)
-    node_behind = node_before.next_node
-    node_before.next_node = new_node
-    new_node.next_node = node_behind
   end
 
   def count(node=@head, count=0)
@@ -89,7 +82,7 @@ class LinkedList
   end
 end
 
-# list = LinkedList.new
+list = LinkedList.new
 # list.append('la')
 # list.append('dee')
 # list.append('da')
@@ -102,7 +95,7 @@ end
 # p list.get_node(3).data
 # list.insert(3,'ho')
 # p list.count
-# list.insert(6,'hum')
+# list.insert(2,'hum')
 # p list.count
 # p list.to_string
 # p list.pop.data
