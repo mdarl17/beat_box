@@ -5,7 +5,7 @@ describe LinkedList do
     list = LinkedList.new
     expect(list).to be_a LinkedList
   end
-
+  
   it 'might be instantiated with a `head` node' do
     list = LinkedList.new('bop')
     expect(list.head).to be_a Node

@@ -2,11 +2,13 @@ require './lib/node'
 require 'dead_end'
 
 class LinkedList
+
   attr_accessor :head
   def initialize
     @head = nil
   end
   # Helper function to get a node's position on LinkedList
+
   def get_node(pos)
     node = @head
     pos.times{
@@ -14,6 +16,7 @@ class LinkedList
     }
     node
   end
+  
   def append(data)
     return self if !data
     insert(count, data)
