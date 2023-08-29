@@ -36,7 +36,11 @@ class LinkedList
       new_node.next_node = @head
       @head = new_node
     else
-      get_node(idx-1).next_node = Node.new(data)
+      new_node = Node.new(data)
+      prev_node = get_node(idx-1)
+      back_node = prev_node.next_node
+      prev_node.next_node = new_node
+      new_node.next_node = back_node
     end
   end
 
@@ -82,7 +86,7 @@ class LinkedList
   end
 end
 
-list = LinkedList.new
+# list = LinkedList.new
 # list.append('la')
 # list.append('dee')
 # list.append('da')
@@ -91,6 +95,9 @@ list = LinkedList.new
 # list.append('likes')
 # list.append('to')
 # list.append('party')
+# p list.to_string
+# list.insert(4, 'doowop')
+# p list.to_string
 # p list.count
 # p list.get_node(3).data
 # list.insert(3,'ho')
@@ -102,3 +109,15 @@ list = LinkedList.new
 # p list.count
 # p list.to_string
 # p list.find(0,8)
+
+# list = LinkedList.new
+# list.append('doo')
+# list.append('womp')
+# list.append('tee')
+# list.append('dah')
+# list.append('doo')
+# list.insert(3,'tee')
+# p list.to_string.split(" ")[3]
+# p list.get_node(3).data
+# p list.get_node(4).data == 'dah'
+# p list.get_node(3).next_node.data == 'dah'
