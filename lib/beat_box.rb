@@ -57,7 +57,7 @@ class BeatBox
   end
 
   def count
-    @list.count - 1
+    @list.count
   end
   
   def play
@@ -78,13 +78,15 @@ bb = BeatBox.new
 # bb_2 = BeatBox.new('mmm bop')
 bb.append('womp')
 bb.prepend('doo')
+p bb.count
+binding.pry
 # bb.append('ding dah oom oom ding oom oom oom ding dah oom oom ding dah oom oom ding dah oom oom Mississippi')
 # bb.voice = "Cellos"
-bb.rate = 100
-bb.voice = 'Cellos'
-bb.play
+# bb.rate = 100
+# bb.voice = 'Cellos'
+# bb.play
 # bb_2.play
-p "bb.all => #{bb.all}"
+# p "bb.all => #{bb.all}"
 # p bb_2.all
-binding.pry
+# binding.pry
 
