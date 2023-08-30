@@ -50,16 +50,16 @@ class LinkedList
   end
 
   def to_string(node=@head)
-    return nil if !node
+    return "" if !node
     "#{node.data} #{to_string(node.next_node)}".strip
   end
 
   def find(idx,len)
-    return 'Sorry, that is not a valid range.' if (idx + len) > count
+    return 'Please enter a valid range.' if (idx + len) > count || idx < 0
     start_node = get_node(idx)
     node_str = ""
     len.times {
-      node_str = node_str + " " + start_node.data
+      node_str = "#{node_str} #{start_node.data}"
       start_node = start_node.next_node
     }
     node_str.strip
