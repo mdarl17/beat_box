@@ -78,26 +78,3 @@ class BeatBox
     @voice = 'Boing'
   end
 end
-
-bb = BeatBox.new
-# bb = BeatBox.new('woop')
-bb = BeatBox.new("dee")
-bb.prepend('doo')
-p bb.all
-# bb.append("tee tee dee dah")
-
-# bb_2 = BeatBox.new('mmm bop')
-# bb.append('womp')
-# bb.play
-
-# p bb.count
-# bb.append('ding dah oom oom ding oom oom oom ding dah oom oom ding dah oom oom ding dah oom oom Mississippi')
-# binding.pry
-# bb.voice = "Cellos"
-# bb.rate = 100
-# bb.voice = 'Cellos'
-# bb.play
-# bb_2.play
-# p "bb.all => #{bb.all}"
-# p bb_2.all
-# binding.pry
