@@ -14,12 +14,18 @@ class BeatBox
   end
 
   def init_list(data)
-    if data
-      list = LinkedList.new
-      list.head = list.append(data)
-      return list
+    return LinkedList.new if !data
+
+    valid_arr = get_valid_beats(data)
+
+    if valid_arr.length > 0
+      new_list = LinkedList.new
+      valid_arr.each{ |beat|
+          new_list.append(beat)
+      }
+      new_list
     else
-      return LinkedList.new
+      LinkedList.new
     end
   end
 
@@ -33,7 +39,7 @@ class BeatBox
   end
 
   def prepend(data)
-    valid_arr = get_valid_beats(data)
+    valid_arr = get_valid_beats(data).reverse
     if valid_arr.length > 0
       valid_arr.each{ |beat|
         @list.prepend(beat)
@@ -74,13 +80,19 @@ class BeatBox
 end
 
 bb = BeatBox.new
+# bb = BeatBox.new('woop')
+bb = BeatBox.new("dee")
+bb.prepend('doo')
+p bb.all
+# bb.append("tee tee dee dah")
 
 # bb_2 = BeatBox.new('mmm bop')
-bb.append('womp')
-bb.prepend('doo')
-p bb.count
-binding.pry
+# bb.append('womp')
+# bb.play
+
+# p bb.count
 # bb.append('ding dah oom oom ding oom oom oom ding dah oom oom ding dah oom oom ding dah oom oom Mississippi')
+# binding.pry
 # bb.voice = "Cellos"
 # bb.rate = 100
 # bb.voice = 'Cellos'
@@ -89,4 +101,3 @@ binding.pry
 # p "bb.all => #{bb.all}"
 # p bb_2.all
 # binding.pry
-

@@ -76,6 +76,7 @@ describe LinkedList do
     list.append('tee')
     list.append('dah')
     expect(list.find(1,3)).to eq('womp tee dah')
+    expect(list.find(-1,4)).to eq('Please enter a valid range.')
   end
 
   it 'can determine if a node in the list stores a specific value' do
